@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "parkAPI",
     platforms: [
-        .macOS(.v10_15)
+        .macOS(.v12)
     ],
     dependencies: [
         .package(url: "https://github.com/hummingbird-project/hummingbird", from: "1.0.0"),
@@ -14,7 +14,7 @@ let package = Package(
     ],
     targets: [
         .executableTarget(
-            name: "App",
+            name: "parkAPI",
             dependencies: [
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
                 .product(name: "Hummingbird", package: "hummingbird"),
