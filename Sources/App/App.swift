@@ -17,7 +17,7 @@ struct HummingbirdCommand: ParsableCommand {
                 serverName: "Hummingbird"
             )
         )
-        
+
         try app.configure()
         try app.start()
         app.wait()
