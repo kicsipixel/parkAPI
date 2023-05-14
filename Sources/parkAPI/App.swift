@@ -2,7 +2,7 @@ import ArgumentParser
 import Hummingbird
 
 @main
-struct HummingbirdCommand: ParsableCommand {
+struct App: ParsableCommand {
 
     @Option(name: .shortAndLong)
     var hostname: String = "127.0.0.1"
