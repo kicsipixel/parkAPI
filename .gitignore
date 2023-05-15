@@ -69,3 +69,6 @@ Config/secrets
 
 ### Swiftlint ###
 .swiftlint.yml
+
+### SQLite ###
+*.sqlite
