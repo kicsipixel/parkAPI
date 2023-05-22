@@ -3,7 +3,6 @@ import Hummingbird
 import HummingbirdDatabase
 
 extension UUID: LosslessStringConvertible {
-    
     public init?(_ description: String) {
         self.init(uuidString: description)
     }
@@ -12,7 +11,7 @@ extension UUID: LosslessStringConvertible {
 struct ParkController {
     // Define the table in the databse
     let tableName = "parks"
-    
+
     // The routes for CRUD operations
     func addRoutes(to group: HBRouterGroup) {
         group
@@ -22,17 +21,17 @@ struct ParkController {
             .patch(":id", use: update)
             .delete(":id", use: deletePark)
     }
-    
+
     // Return all parks
     func list(req: HBRequest) async throws -> [Park] {
         let sql = """
                 SELECT * FROM parks
         """
         let query = HBDatabaseQuery(unsafeSQL: sql)
-        
+
         return try await req.db.execute(query, rowType: Park.self)
     }
-    
+
     // Get park with id specified
     func show(req: HBRequest) async throws -> Park? {
         let id = try req.parameters.require("id", as: UUID.self)
@@ -44,10 +43,10 @@ struct ParkController {
             bindings: ["id": id]
         )
         let rows = try await req.db.execute(query, rowType: Park.self)
-        
+
         return rows.first
     }
-    
+
     // Create a new park
     func create(req: HBRequest) async throws -> Park {
         struct CreatePark: Decodable {
@@ -55,7 +54,7 @@ struct ParkController {
             let longitude: Double
             let name: String
         }
-        
+
         let park = try req.decode(as: CreatePark.self)
         let id = UUID()
         let row = Park(
@@ -70,13 +69,13 @@ struct ParkController {
                 VALUES
                     (:id:, :latitude:, :longitude:, :name:)
                 """
-        
+
         try await req.db.execute(.init(unsafeSQL: sql, bindings: row))
         req.response.status = .created
-        
+
         return row
     }
-    
+
     // Update park with id specified
     func update(req: HBRequest) async throws -> HTTPResponseStatus {
         struct UpdatePark: Decodable {
@@ -96,7 +95,7 @@ struct ParkController {
                     WHERE
                         id = :0:
                     """
-        
+
         try await req.db.execute(
             .init(
                 unsafeSQL:
@@ -107,7 +106,7 @@ struct ParkController {
         )
         return .ok
     }
-    
+
     // Delete park with id specified
     func deletePark(req: HBRequest) async throws -> HTTPResponseStatus {
         let id = try req.parameters.require("id", as: UUID.self)
@@ -122,5 +121,4 @@ struct ParkController {
         )
         return .ok
     }
-    
 }
