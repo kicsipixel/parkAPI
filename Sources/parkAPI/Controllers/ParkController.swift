@@ -80,9 +80,9 @@ struct ParkController {
     // Update park with id specified
     func update(req: HBRequest) async throws -> HTTPResponseStatus {
         struct UpdatePark: Decodable {
-            var latitude: Double
-            var longitude: Double
-            var name: String
+            var latitude: Double?
+            var longitude: Double?
+            var name: String?
         }
         let id = try req.parameters.require("id", as: UUID.self)
         let park = try req.decode(as: UpdatePark.self)
