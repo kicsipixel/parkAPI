@@ -23,7 +23,7 @@ let package = Package(
                 .product(name: "HummingbirdFoundation", package: "hummingbird"),
                 // Database dependencies
                 .product(name: "HummingbirdDatabase", package: "hummingbird-db"),
-                .product(name: "HummingbirdSQLiteDatabase", package: "hummingbird-db")
+                .product(name: "HummingbirdPostgresDatabase", package: "hummingbird-db"),
             ],
             swiftSettings: [
                 .unsafeFlags(

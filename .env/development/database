@@ -1,0 +1,3 @@
+POSTGRES_USER = hummingbird
+POSTGRES_PASSWORD = hummingbird_password
+POSTGRES_DB = hb-parks

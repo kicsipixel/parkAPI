@@ -1,0 +1,18 @@
+# Docker Compose file for PostgreSQL DB
+#
+# Start database: docker-compose up database
+#
+version: '3.7'
+  
+services:
+  database:
+    image: postgres:15-alpine
+    restart: always
+    env_file:
+      - .env/development/database
+    ports:
+      - 5432:5432
+    volumes:
+      - db_data:/var/lib/postgresql/data
+volumes:
+  db_data:
