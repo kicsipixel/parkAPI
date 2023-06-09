@@ -8,3 +8,7 @@ It is a lightweight, flexible server framework written in Swift. Hummingbird con
 You can find the tutorial [here](https://kicsipixel.github.io/posts/2023/2023-06-02-hummingbird/).
 
 After cloning the repo, you can run the server: ```swift run parkAPI```.
+
+### The code has two branches:
+- SQLite version (main)
+- PostgreSQL (postgresql)
