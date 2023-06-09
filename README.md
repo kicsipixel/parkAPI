@@ -3,4 +3,4 @@ This is the code for the [https://github.com/hummingbird-project/hummingbird](Hu
 
 This branch uses PostgreSQL database, so either you need to install it on your computer or you need to run: ```docker-compose up```.
 
-After starting the database, you can run the server: ```swift run parkAPI``.
+After starting the database, you can run the server: ```swift run parkAPI```.
