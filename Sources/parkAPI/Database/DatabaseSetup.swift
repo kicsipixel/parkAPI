@@ -3,9 +3,8 @@ import HummingbirdSQLiteDatabase
 
 extension HBApplication {
     func setupDatabase() async throws {
-        let path = "./hb-parks.sqlite"
         services.setUpSQLiteDatabase(
-            path: path,
+            storage: .file(path: "./hb-parks.sqlite"),
             threadPool: threadPool,
             eventLoopGroup: eventLoopGroup,
             logger: logger

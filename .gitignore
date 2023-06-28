@@ -63,6 +63,7 @@ playground.xcworkspace
 Packages
 xcuserdata
 *.xcodeproj
+Package.resolved
 
 ### Vapor ###
 Config/secrets
