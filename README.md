@@ -1,5 +1,5 @@
 # parkAPI - code for the tutorial
-This code is based on the [https://github.com/hummingbird-project/hummingbird](Hummingbird) framework.
+This code is based on the [Hummingbird](https://github.com/hummingbird-project/hummingbird) framework.
 
 ## Hummingbird
 It is a lightweight, flexible server framework written in Swift. Hummingbird consists of three main components, the core HTTP server, a minimal web application framework and the extension modules.
